@@ -15,7 +15,7 @@
    var powered_by = "<div style='font-size: 9px; float: right'><a href='http://spotlight.dbpedia.org'>Powered by DBpedia Spotlight</a></div>";
 
    var settings = {      
-      'endpoint' : 'http://spotlight.dbpedia.org/dev/rest',
+      'endpoint' : 'http://spotlight.dbpedia.org/rest',
       'confidence' : 0.4,
       'support' : 20,
       'powered_by': 'yes'

@@ -357,7 +357,7 @@ body .jstree li {
 var annotated = false;
 var textInput = null;
 //var server = 'http://localhost:2223/rest'
-var server = 'http://spotlight.dbpedia.org/dev/rest'
+var server = 'http://spotlight.dbpedia.org/rest'
 
 var lastResponse;
 
@@ -840,7 +840,7 @@ function sparqlExample(i) {
             That will send the text you've selected to DBpedia Spotlight and take you to the annotated text in a blink!
             <div class="bookmarklet">
                 <p>
-                    <a href="javascript:function se(d) {return d.selection ? d.selection.createRange().text : d.getSelection()} s = se(document); for (i=0; i<frames.length && !s; i++) s = se(frames[i].document); if (!s || s=='') s = prompt('Enter%20text%20to%20annotate%20with%20DBpedia%20Spotlight',''); open('http://spotlight.dbpedia.org/dev/demo/index.html' + (s ? '?execute=yes&client=bookmarklet&text=' + encodeURIComponent(s) : '')).focus();">
+                    <a href="javascript:function se(d) {return d.selection ? d.selection.createRange().text : d.getSelection()} s = se(document); for (i=0; i<frames.length && !s; i++) s = se(frames[i].document); if (!s || s=='') s = prompt('Enter%20text%20to%20annotate%20with%20DBpedia%20Spotlight',''); open('http://dbpedia-spotlight.github.com/demo/index.html' + (s ? '?execute=yes&client=bookmarklet&text=' + encodeURIComponent(s) : '')).focus();">
                         Annotate with DBpedia Spotlight
                     </a>
                 </p>

@@ -72,7 +72,7 @@ function sortOffset(a,b){
 	getSelectBox: function(resources, className) {
              var ul =  $("<ul class='"+className+"s'></ul>");
              $.each(resources, function(i, r) {
-                 var li = "<li class='"+className+" "+className+"-" + i + "'><a href='http://dbpedia.org/resource/" + r["@uri"] + "' about='" + r["@uri"] + "'>" + r["@label"] + "</a>";
+                 var li = "<li class='"+className+" "+className+"-" + i + "'><a href='" + res_prefix + r["@uri"] + "' about='" + r["@uri"] + "'>" + r["@label"] + "</a>";
 
                  //TODO settings.showScores = ["finalScore"] foreach showscores, add k=v
                  if (settings.showScores == 'yes') {

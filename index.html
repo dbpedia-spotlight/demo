@@ -635,6 +635,8 @@ $(document).ready(function() {
 				selectLanguage.append($('<option></option>').val(i18n).html(language));				   
 			});
 			
+			selectLanguage.trigger("change");
+			
 		}	
 	   });
 

@@ -121,7 +121,7 @@ function sortOffset(a,b){
                var classes = "annotation";
 
                snippet += "<div id='"+(sfName+offset)+"' class='" + classes + "'><a class='surfaceForm'>" + sfName + "</a>";
-               var ul = Parser.getSelectBox($(e.resource),'candidate');
+               var ul = Parser.getSelectBox($(e.resource.reverse()),'candidate');
                //ul.children().each(function() { console.log($.data($(this),"testProp")); });
                snippet += "<ul class='candidates'>"+ul.html()+"</ul>"; //FIXME this wrapper is a repeat from getSelectBox
                snippet += "</div>";

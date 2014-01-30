@@ -71,7 +71,7 @@ function sortOffset(a,b){
    var Parser = {
 	getSelectBox: function(resources, className) {
              var ul =  $("<ul class='"+className+"s'></ul>");
-             $.each(resources, function(i, r) {
+             $.each(resources.reverse(), function(i, r) {
                  var li = "<li class='"+className+" "+className+"-" + i + "'><a href='" + res_prefix + r["@uri"] + "' about='" + r["@uri"] + "'>" + r["@label"] + "</a>";
 
                  //TODO settings.showScores = ["finalScore"] foreach showscores, add k=v
@@ -121,7 +121,7 @@ function sortOffset(a,b){
                var classes = "annotation";
 
                snippet += "<div id='"+(sfName+offset)+"' class='" + classes + "'><a class='surfaceForm'>" + sfName + "</a>";
-               var ul = Parser.getSelectBox($(e.resource.reverse()),'candidate');
+               var ul = Parser.getSelectBox($(e.resource),'candidate');
                //ul.children().each(function() { console.log($.data($(this),"testProp")); });
                snippet += "<ul class='candidates'>"+ul.html()+"</ul>"; //FIXME this wrapper is a repeat from getSelectBox
                snippet += "</div>";

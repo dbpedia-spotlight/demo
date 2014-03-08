@@ -52,7 +52,7 @@ function sortOffset(a,b){
    var settings = {      
       'endpoint' : 'http://localhost:2223/rest',
       'confidence' : 0.4,          //
-      'support' : 20,
+      'support' : 0,
       'powered_by': 'yes',         // yes or no
       'showScores': 'yes',         // yes or no
       'types': '',

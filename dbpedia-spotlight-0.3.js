@@ -51,7 +51,7 @@ function sortOffset(a,b){
 
    var settings = {      
       'endpoint' : 'http://localhost:2223/rest',
-      'confidence' : 0.4,          //
+      'confidence' : 0.5,          //
       'support' : 0,
       'powered_by': 'yes',         // yes or no
       'showScores': 'yes',         // yes or no
@@ -162,7 +162,7 @@ function sortOffset(a,b){
                 start = offset+sfLength;
 
                 var support = parseInt(e["@support"]);
-                var confidence = 0.0;
+                var confidence = 0.5;
 
                 var classes = "annotation"
                 snippet += "<a id='"+(sfName+offset)+"' class='" + classes + "' about='" + uri + "' href='" + uri + "' title='" + uri + "'>" + sfName

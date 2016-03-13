@@ -96,9 +96,9 @@ function sortOffset(a,b){
        getAnnotatedText: function(response) {
             var json;
             if (typeof response=='object') {
-		json = response
+		json = response;
 	    } else {
-		json = $.parseJSON(response.toString());
+		json = $.parseJSON(response);
 	    }
 
            var text = json["annotation"]["@text"];
@@ -142,7 +142,7 @@ function sortOffset(a,b){
             if (typeof response=='object') {
 		json = response;
 	    } else {
-		json = $.parseJSON(response.toString());
+		json = $.parseJSON(response);
 	    }
 
             var text = json["@text"];
@@ -197,7 +197,7 @@ function sortOffset(a,b){
             if (typeof response=='object') {
 		json = response;
 	    } else {
-		json = $.parseJSON(response.toString());
+		json = $.parseJSON(response);
 	    }
             var text = json["@text"];
 
@@ -241,7 +241,7 @@ function sortOffset(a,b){
              if (typeof response=='object') {
 	 	json = response;
 	     } else {
-	 	json = $.parseJSON(response.toString());
+	 	json = $.parseJSON(response);
 	     }
              var suggestions = "";
 	     if (json.annotation['surfaceForm']!=undefined) {                  
@@ -332,6 +332,7 @@ function sortOffset(a,b){
 		//init(options);
                function update(response) { 
                    var content = "<div>" + Parser.getAnnotatedText(response) + "</div>";
+		
                    if (settings.powered_by == 'yes') { 
                        $(content).append($(powered_by)); 
                    };                        

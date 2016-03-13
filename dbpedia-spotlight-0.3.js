@@ -296,6 +296,38 @@ function sortOffset(a,b){
                     });    
                  });
        },
+       bestITS: function( options ) {
+          //init(options);
+          function update(response) { 
+
+                   var content = "<div>" + Parser.getAnnotatedTextFirstBestITS(response) + "</div>";
+                   if (settings.powered_by == 'yes') {
+                       $(content).append($(powered_by));
+                   };
+                   $(this).html(content);
+
+               if(settings.callback != undefined) {
+                   settings.callback(response);
+               }
+          }    
+       
+               return this.each(function() {            
+                 //console.log($.quoteString($(this).text()));
+                 var params = {'text': $(this).text(), 'confidence': settings.confidence, 'support': settings.support, 'spotter': settings.spotter, 'disambiguator': settings.disambiguator, 'policy': settings.policy };
+                 if("types" in settings && settings["types"] != undefined)
+                   params["types"] = settings.types;
+                 if("sparql" in settings && settings["sparql"] != undefined)
+                   params["sparql"] = settings.sparql;
+    
+                 ajaxRequest = $.ajax({ 'url': settings.endpoint+"/annotate",
+                      'data': params,
+                      'context': this,
+                      'headers': {'Accept': 'application/json'},
+                      'success': update,
+                      'error': function(response) { if(settings.callback != undefined) { settings.callback(response); } }
+                    });    
+                 });
+       },
        candidates: function( options ) {
 		//init(options);
                function update(response) { 

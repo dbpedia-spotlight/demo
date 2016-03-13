@@ -94,8 +94,12 @@ function sortOffset(a,b){
              return ul;
         },
        getAnnotatedText: function(response) {
-           var json = $.parseJSON(response);
-           if (json==null) json = response; // when it comes already parsed
+            var json;
+            if (typeof response=='object') {
+		json = response
+	    } else {
+		json = $.parseJSON(response.toString());
+	    }
 
            var text = json["annotation"]["@text"];
 
@@ -134,8 +138,12 @@ function sortOffset(a,b){
            return annotatedText.replace(/\n/g, "<br />\n");
        },
         getAnnotatedTextFirstBest: function(response) {
-            var json = $.parseJSON(response);
-            if (json==null) json = response; // when it comes already parsed
+            var json;
+            if (typeof response=='object') {
+		json = response;
+	    } else {
+		json = $.parseJSON(response.toString());
+	    }
 
             var text = json["@text"];
 
@@ -185,9 +193,12 @@ function sortOffset(a,b){
         },
 
 	getAnnotatedTextFirstBestITS: function(response) {
-            var json = $.parseJSON(response);
-            if (json==null) json = response; // when it comes already parsed
-
+            var json;
+            if (typeof response=='object') {
+		json = response;
+	    } else {
+		json = $.parseJSON(response.toString());
+	    }
             var text = json["@text"];
 
             var start = 0;
@@ -226,8 +237,12 @@ function sortOffset(a,b){
         },
 
 	getSuggestions: function(response, targetSurfaceForm) {
-             var json = $.parseJSON(response);
-	     if (json==null) json = response; // when it comes already parsed
+             var json;
+             if (typeof response=='object') {
+	 	json = response;
+	     } else {
+	 	json = $.parseJSON(response.toString());
+	     }
              var suggestions = "";
 	     if (json.annotation['surfaceForm']!=undefined) {                  
                   var annotations = new Array().concat(json.annotation.surfaceForm) // deals with the case of only one surfaceFrom returned (ends up not being an array)

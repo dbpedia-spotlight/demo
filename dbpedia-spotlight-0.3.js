@@ -157,7 +157,7 @@ function sortOffset(a,b){
                 var uri = e["@URI"];
 
                 var sfLength = parseInt(sfName.length);
-                var snippet = text.substring(start, offset)
+                var snippet = text.substring(start, offset);
                 var surfaceForm = text.substring(offset,offset+sfLength);
                 start = offset+sfLength;
 
@@ -176,6 +176,47 @@ function sortOffset(a,b){
 
                 snippet += "</a>";
 
+                return snippet;
+            }).join("");
+            //snippet after last surface form
+            annotatedText += text.substring(start, text.length);
+            //console.log(annotatedText);
+            return annotatedText.replace(/\n/g, "<br />\n");
+        },
+
+	getAnnotatedTextFirstBestITS: function(response) {
+            var json = $.parseJSON(response);
+            if (json==null) json = response; // when it comes already parsed
+
+            var text = json["@text"];
+
+            var start = 0;
+            var annotatedText = text;
+
+            var annotations = new Array();
+            if (json['Resources']!=undefined) {
+                annotations = annotations.concat(json['Resources']); // deals with the case of only one surfaceFrom returned (ends up not being an array)
+            } else {
+                //TODO show a message saying that no annotations were found
+            }
+
+            annotatedText = annotations.map(function(e) {
+                if (e==undefined) return "";
+
+                var sfName = e["@surfaceForm"];
+                var offset = parseInt(e["@offset"]);
+                var uri = e["@URI"];
+
+                var sfLength = parseInt(sfName.length);
+                var snippet = text.substring(start, offset);
+                start = offset+sfLength;
+
+                var support = parseInt(e["@support"]);
+
+		snippet += "<span id='" + (sfName+offset) +
+			"' its-ta-ident-ref='" + uri +
+			"' its-ta-confidence='" + parseFloat(e["@similarityScore"]).toPrecision(3) + "'>" + sfName
+                snippet += "</span>";
                 return snippet;
             }).join("");
             //snippet after last surface form

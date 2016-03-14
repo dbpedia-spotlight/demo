@@ -171,18 +171,24 @@ function sortOffset(a,b){
 
                 var support = parseInt(e["@support"]);
                 var confidence = 0.5;
+		if (settings.its == 'yes') {
+			snippet += "<span id='" + (sfName+offset) +
+				"' its-ta-ident-ref='" + uri +
+				"' its-ta-confidence='" + parseFloat(e["@similarityScore"]).toPrecision(3) + "'>" + sfName
+		        snippet += "</span>";
+		} else {
+		        var classes = "annotation"
+		        snippet += "<a id='"+(sfName+offset)+"' class='" + classes + "' about='" + uri + "' href='" + uri + "' title='" + uri + "'>" + sfName
 
-                var classes = "annotation"
-                snippet += "<a id='"+(sfName+offset)+"' class='" + classes + "' about='" + uri + "' href='" + uri + "' title='" + uri + "'>" + sfName
+		        snippet += getScoreDOMElements({
+		            "finalScore": parseFloat(e["@similarityScore"]).toPrecision(3),
+		            "contextualScore": parseFloat(e["@similarityScore"]).toPrecision(3), //TODO send contextualScore from server and grab here
+		            "percentageOfSecondRank": parseFloat(e["@percentageOfSecondRank"]),
+		            "support": parseFloat(e["@support"])
+		        });
 
-                snippet += getScoreDOMElements({
-                    "finalScore": parseFloat(e["@similarityScore"]).toPrecision(3),
-                    "contextualScore": parseFloat(e["@similarityScore"]).toPrecision(3), //TODO send contextualScore from server and grab here
-                    "percentageOfSecondRank": parseFloat(e["@percentageOfSecondRank"]),
-                    "support": parseFloat(e["@support"])
-                });
-
-                snippet += "</a>";
+		        snippet += "</a>";
+		}
 
                 return snippet;
             }).join("");
@@ -191,51 +197,6 @@ function sortOffset(a,b){
             //console.log(annotatedText);
             return annotatedText.replace(/\n/g, "<br />\n");
         },
-
-	getAnnotatedTextFirstBestITS: function(response) {
-            var json;
-            if (typeof response=='object') {
-		json = response;
-	    } else {
-		json = $.parseJSON(response);
-	    }
-            var text = json["@text"];
-
-            var start = 0;
-            var annotatedText = text;
-
-            var annotations = new Array();
-            if (json['Resources']!=undefined) {
-                annotations = annotations.concat(json['Resources']); // deals with the case of only one surfaceFrom returned (ends up not being an array)
-            } else {
-                //TODO show a message saying that no annotations were found
-            }
-
-            annotatedText = annotations.map(function(e) {
-                if (e==undefined) return "";
-
-                var sfName = e["@surfaceForm"];
-                var offset = parseInt(e["@offset"]);
-                var uri = e["@URI"];
-
-                var sfLength = parseInt(sfName.length);
-                var snippet = text.substring(start, offset);
-                start = offset+sfLength;
-
-                var support = parseInt(e["@support"]);
-
-		snippet += "<span id='" + (sfName+offset) +
-			"' its-ta-ident-ref='" + uri +
-			"' its-ta-confidence='" + parseFloat(e["@similarityScore"]).toPrecision(3) + "'>" + sfName
-                snippet += "</span>";
-                return snippet;
-            }).join("");
-            //snippet after last surface form
-            annotatedText += text.substring(start, text.length);
-            //console.log(annotatedText);
-            return annotatedText.replace(/\n/g, "<br />\n");
-        },
-
 	getSuggestions: function(response, targetSurfaceForm) {
              var json;
              if (typeof response=='object') {
@@ -269,38 +230,6 @@ function sortOffset(a,b){
           function update(response) { 
 
                    var content = "<div>" + Parser.getAnnotatedTextFirstBest(response) + "</div>";
-                   if (settings.powered_by == 'yes') {
-                       $(content).append($(powered_by));
-                   };
-                   $(this).html(content);
-
-               if(settings.callback != undefined) {
-                   settings.callback(response);
-               }
-          }    
-       
-               return this.each(function() {            
-                 //console.log($.quoteString($(this).text()));
-                 var params = {'text': $(this).text(), 'confidence': settings.confidence, 'support': settings.support, 'spotter': settings.spotter, 'disambiguator': settings.disambiguator, 'policy': settings.policy };
-                 if("types" in settings && settings["types"] != undefined)
-                   params["types"] = settings.types;
-                 if("sparql" in settings && settings["sparql"] != undefined)
-                   params["sparql"] = settings.sparql;
-    
-                 ajaxRequest = $.ajax({ 'url': settings.endpoint+"/annotate",
-                      'data': params,
-                      'context': this,
-                      'headers': {'Accept': 'application/json'},
-                      'success': update,
-                      'error': function(response) { if(settings.callback != undefined) { settings.callback(response); } }
-                    });    
-                 });
-       },
-       bestITS: function( options ) {
-          //init(options);
-          function update(response) { 
-
-                   var content = "<div>" + Parser.getAnnotatedTextFirstBestITS(response) + "</div>";
                    if (settings.powered_by == 'yes') {
                        $(content).append($(powered_by));
                    };

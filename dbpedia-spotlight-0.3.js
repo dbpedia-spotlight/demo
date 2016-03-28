@@ -94,8 +94,12 @@ function sortOffset(a,b){
              return ul;
         },
        getAnnotatedText: function(response) {
-           var json = $.parseJSON(response);
-           if (json==null) json = response; // when it comes already parsed
+            var json;
+            if (typeof response=='object') {
+		json = response;
+	    } else {
+		json = $.parseJSON(response);
+	    }
 
            var text = json["annotation"]["@text"];
 
@@ -134,8 +138,12 @@ function sortOffset(a,b){
            return annotatedText.replace(/\n/g, "<br />\n");
        },
         getAnnotatedTextFirstBest: function(response) {
-            var json = $.parseJSON(response);
-            if (json==null) json = response; // when it comes already parsed
+            var json;
+            if (typeof response=='object') {
+		json = response;
+	    } else {
+		json = $.parseJSON(response);
+	    }
 
             var text = json["@text"];
 
@@ -157,24 +165,30 @@ function sortOffset(a,b){
                 var uri = e["@URI"];
 
                 var sfLength = parseInt(sfName.length);
-                var snippet = text.substring(start, offset)
+                var snippet = text.substring(start, offset);
                 var surfaceForm = text.substring(offset,offset+sfLength);
                 start = offset+sfLength;
 
                 var support = parseInt(e["@support"]);
                 var confidence = 0.5;
+		if (settings.its == 'yes') {
+			snippet += "<span id='" + (sfName+offset) +
+				"' its-ta-ident-ref='" + uri +
+				"' its-ta-confidence='" + parseFloat(e["@similarityScore"]).toPrecision(3) + "'>" + sfName
+		        snippet += "</span>";
+		} else {
+		        var classes = "annotation"
+		        snippet += "<a id='"+(sfName+offset)+"' class='" + classes + "' about='" + uri + "' href='" + uri + "' title='" + uri + "'>" + sfName
 
-                var classes = "annotation"
-                snippet += "<a id='"+(sfName+offset)+"' class='" + classes + "' about='" + uri + "' href='" + uri + "' title='" + uri + "'>" + sfName
+		        snippet += getScoreDOMElements({
+		            "finalScore": parseFloat(e["@similarityScore"]).toPrecision(3),
+		            "contextualScore": parseFloat(e["@similarityScore"]).toPrecision(3), //TODO send contextualScore from server and grab here
+		            "percentageOfSecondRank": parseFloat(e["@percentageOfSecondRank"]),
+		            "support": parseFloat(e["@support"])
+		        });
 
-                snippet += getScoreDOMElements({
-                    "finalScore": parseFloat(e["@similarityScore"]).toPrecision(3),
-                    "contextualScore": parseFloat(e["@similarityScore"]).toPrecision(3), //TODO send contextualScore from server and grab here
-                    "percentageOfSecondRank": parseFloat(e["@percentageOfSecondRank"]),
-                    "support": parseFloat(e["@support"])
-                });
-
-                snippet += "</a>";
+		        snippet += "</a>";
+		}
 
                 return snippet;
             }).join("");
@@ -183,10 +197,13 @@ function sortOffset(a,b){
             //console.log(annotatedText);
             return annotatedText.replace(/\n/g, "<br />\n");
         },
-
 	getSuggestions: function(response, targetSurfaceForm) {
-             var json = $.parseJSON(response);
-	     if (json==null) json = response; // when it comes already parsed
+             var json;
+             if (typeof response=='object') {
+	 	json = response;
+	     } else {
+	 	json = $.parseJSON(response);
+	     }
              var suggestions = "";
 	     if (json.annotation['surfaceForm']!=undefined) {                  
                   var annotations = new Array().concat(json.annotation.surfaceForm) // deals with the case of only one surfaceFrom returned (ends up not being an array)
@@ -244,6 +261,7 @@ function sortOffset(a,b){
 		//init(options);
                function update(response) { 
                    var content = "<div>" + Parser.getAnnotatedText(response) + "</div>";
+		
                    if (settings.powered_by == 'yes') { 
                        $(content).append($(powered_by)); 
                    };                        

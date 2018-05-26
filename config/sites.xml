@@ -7,17 +7,6 @@
 	</site>
 	
 	<site>
-		<i18n>ar</i18n>
-		<language>Arabic</language>
-		<url>https://api.dbpedia-spotlight.org/ar</url>
-		<text>
-بالتوازي، يعتبر نهر لوفيرونزا في بوروندي هو أقصى مصادر النيل جنوباً ، وهو أحد روافد نهر كاجيرا الذي يقطع مسارًا طوله 690 كم (429 ميل) قبل أن يصب في بحيرة فيكتوريا. تعتبر بحيرة فيكتوريا هي المصدر الأساسي لمياه النيل الأبيض و هي ثاني أكبر بحيرة عذبة في العالم. تقع هذه البحيرة في منطقة غنية بالمستنقعات علي حدود كل من أوغندا، تانزانيا وكينيا ويقطعها خط الإستواء[1]، وهذه البحيرة بدورها تعتبر ثالث البحيرات العظمي. و تبلغ مساحتها 67 ألف كيلومتر مربع و عمقها المتوسط 40 متراً.
-
-يخرج نهر النيل من بحيرة فيكتوريا عند مدينة جينجا، يعرف النيل في هذا الجزء باسم نيل فيكتوريا و يجري لمسافة 70 كيلومتراً حتى يدخل بحيرة كيوجا و هي بحيرة ضحلة لا يتجاوز عمقها 7 امتار، ثم يغادرها عند ميناء ماسيندي ويستمر في مساره عبر شلالات مورشنسون لمسافة 500 كم (300 ميل) حتى يصل إلي بحيرة ألبرت بعد 500 كم (300 ميل) من مغادرته لبحيرة فكتوريا ينحدر فيها حوالي 514 متراً[1]. تبلغ مساحة بحيرة </text>
-	</site>
-	
-	
-	<site>
 		<i18n>de</i18n>
 		<language>German</language>
 		<url>https://api.dbpedia-spotlight.org/de</url>
@@ -25,70 +14,10 @@
 	</site>
 
 	<site>
-		<i18n>nl</i18n>
-		<language>Dutch</language>
-		<url>https://api.dbpedia-spotlight.org/nl</url>
-	    <text>In zijn geschiedenis, die teruggaat tot de dertiende eeuw, was Berlijn de hoofdstad van Pruisen (1701–1918), het Duitse Keizerrijk (1871–1918), de Weimarrepubliek (1919–1933) en nazi-Duitsland (1933–1945). Na de Tweede Wereldoorlog was Berlijn gedurende meer dan veertig jaar een verdeelde stad, waarbij het oostelijke deel als hoofdstad fungeerde van de Duitse Democratische Republiek en West-Berlijn een de facto exclave van West-Duitsland was. Na de Duitse hereniging in 1990 werd Berlijn de hoofdstad van de Bondsrepubliek Duitsland en de zetel van het parlement, de deelstaatvertegenwoordiging en het staatshoofd.</text>
-	</site>
-	
-	<site>
-		<i18n>fr</i18n>
-		<language>French</language>
-		<url>https://api.dbpedia-spotlight.org/fr</url>
-	    <text>La ville de Berlin se situe dans le nord-est de l'Allemagne, dans la plaine germano-polonaise, à 33 m d'altitude, au confluent de la Spree et de la Havel. Une particularité de la ville est la présence de nombreux lacs et rivières, le long des cours d'eau. On en trouve plusieurs à l'ouest, mais aussi à l'est avec le Müggelsee. Berlin est égayée par plusieurs rivières, canaux, parcs et lacs (Havel, Wannsee, Müggelsee, Spree, Dahme, Landwehrkanal). Elle possède en outre une architecture ancienne et classique très riche.</text>
-	</site>
-	
-	<site>
-		<i18n>it</i18n>
-		<language>Italian</language>
-		<url>https://api.dbpedia-spotlight.org/it</url>
-	    <text>Berlino è situata nella parte orientale della Germania, a 70 km dal confine polacco. È situata nella regione geografica del Brandeburgo, ma non fa parte dell'omonimo Land, da cui è peraltro interamente circondata. La città ha una superficie molto vasta, di 892 km². L'estensione in senso nord-sud è di 38 km, in senso est-ovest di 45 km. Il centro di Berlino sorge sulle rive della Sprea (Spree in tedesco), in un'ampia valle di origine glaciale (Berliner Urstromtal) fra gli altipiani di Barnim e Teltow, orientata in senso est-ovest.</text>
-	</site>	
-	
-	<site>
-		<i18n>ja</i18n>
-		<language>Japanese</language>
-		<url>https://api.dbpedia-spotlight.org/ja</url>
-		<text>東京都が管轄する領域は東京都区部（東京23区）・多摩地域（26市[注 1]・1郡(3町1村））および東京都島嶼部（大島・三宅・八丈・小笠原）の4支庁(2町7村)から成っている。東京都区部（東京23区）は、一つの都市として、「東京」とも呼ばれる。沖ノ鳥島・南鳥島を含む小笠原諸島を含むため、日本最南端および最東端に位置する都道府県でもある。
-
-慶応4年/明治元年（1868年）に平安京から東京都の前身である東京府に首都機能が移ってきたとされ（東京奠都）、1943年（昭和18年）に東京府と東京市が統合されて東京都が首都となった。戦後、1950年（昭和25年）に東京都を日本の首都として、十分にその機能を発揮し得るよう首都建設法が施行されたが、1956年（昭和31年）首都圏整備法の施行に伴い廃止された。
-
-			人口は13,742,906人（2017年10月1日現在）。これは日本の都道府県の中では人口が最も多く、日本の人口の10%以上を占める。</text>
-	</site>
-	
-	<site>
-		<i18n>ru</i18n>
-		<language>Russian</language>
-		<url>https://api.dbpedia-spotlight.org/ru</url>
-	    <text>Берлин расположен на востоке Германии, в 70 километрах от границы с Польшей. Берлин обладает правами федеральной земли и целиком располагается внутри федеральной земли Бранденбург. Исторический центр Берлина находится в низине, в пойме реки Шпрее, между двумя моренными возвышенностями (холмами), называемыми Барним и Тельтов. Значительная часть современного города расположена также на этих холмах: часть территории в административных округах Райниккендорф, Панков, Лихтенберг, Марцан-Хеллерсдорф расположена на Барниме, а в округах Шарлоттенбург-Вильмерсдорф, Штеглиц-Целендорф, Темпельхоф-Шёнеберг и Нойкёльн — на возвышенности Тельтов.</text>
-	</site>	
-
-	<site>
-		<i18n>es</i18n>
-		<language>Spanish</language>
-		<url>https://api.dbpedia-spotlight.org/es</url>
-	    <text>Fundada en 1237 como Cölln, Berlín fue sucesivamente capital del Reino de Prusia (1701-1918), del Imperio Alemán (1871–1918), de la República de Weimar (1919–1933) y del Tercer Reich (1933–1945). Después de la Segunda Guerra Mundial, la ciudad fue dividida; la parte este de la ciudad se convirtió en la capital de la República Democrática Alemana, mientras que la región oeste de la ciudad se convirtió en un enclave de la República Federal de Alemania en el interior de la Alemania Oriental.</text>
-	</site>	
-
-	<site>
 		<i18n>pt</i18n>
 		<language>Portuguese</language>
 		<url>https://api.dbpedia-spotlight.org/pt</url>
 	    <text>Pela primeira vez documentada no século XIII, Berlim foi sucessivamente a capital do Reino da Prússia (1701), do Império Alemão (1871-1918), da República de Weimar (1919-1932) e do Terceiro Reich (1933-1945). Depois da Segunda Guerra Mundial, a cidade foi dividida. Berlim Oriental se tornou a capital da República Democrática Alemã (RDA), enquanto Berlim Ocidental continuou sendo parte da República Federal da Alemanha (RFA).18 Com a reunificação alemã em 1990, a cidade passou a ser capital de toda a Alemanha.</text>
-	</site>	
-	
-	<site>
-		<i18n>hu</i18n>
-		<language>Hungarian</language>
-		<url>https://api.dbpedia-spotlight.org/hu</url>
-	    <text>A város központja a Spree folyó partján fekszik, az ún. Varsó-Berlin-ősfolyamvölgyben. A folyó kelet-nyugati irányban folyik át a városon, a belvárosban két ágra oszlik és szigetet képez (Múzeum-sziget). Ezenkívül átszeli a várost a Landwehr-, a Lujza- és a berlin-spandaui hajózási csatorna, amelyeken 50-nél több híd ível át. E hidak közül a legszebb a Schlossbrücke (48 m hosszú), amelyet 1822–1824 között Schinkel tervei szerint építettek; széleit négy-négy, a katonai életet ábrázoló márvány szoborcsoport ékesíti. Jelentősebb hidak még: a Kurfürst híd, a nagy választófejedelem ércből öntött lovasszobrával; a Vilmos császár hídja, a 4 márvány szoborcsoporttal ékesített Belle-Alliance híd és a Herkules híd.</text>
-	</site>
-
-	<site>
-		<i18n>tr</i18n>
-		<language>Turkish</language>
-		<url>https://api.dbpedia-spotlight.org/tr</url>
-	    <text>Kentin ortasından akan Spree nehrinin, iki kıyısında, Cölln ve Berlin adlı iki balıkçı köyü iken ilk kez 1307 yılında birleşti. Brandenburg'un (daha sonra ise Prusya'nın) başkentliğini yapan Berlin, 18. yüzyıla kadar önemli arz eden bir şehir değildi. Ancak Prusya'nın güçlenmesi sürecinde öncelikle Kuzey Almanya'nın ve sonrasında da Avrupa'nın siyasi, ekonomik ve kültürel anlamda önemli merkezlerinden biri haline geldi. 1871 yılında kurulan Alman İmparatorluğu'na da başkentlik yapan Berlin, 1933 yılından itibaren Nazi Almanyası'nın da başkentiydi. II. Dünya Savaşı'nda harabeye döndü, müttefik devletler tarafından işgal edildi.</text>
 	</site>	
 
 </sites>

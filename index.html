@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DBpedia Spotlight</title>
+<title>DBpedia developers</title>
 
 <script src="selector.js" type="text/javascript"></script>
 <script src="jquery-1.6.1.min.js" type="text/javascript"></script>
@@ -788,7 +788,7 @@ function sparqlExample(i) {
             s = "SELECT ?film\nWHERE { ?film <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:French_films> }";
             break;
         default:
-            s = "";
+            s = "the url is wrong ";
     }
     $('#sparql_type').val(s);
 
